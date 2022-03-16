@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.main.view.converter.ConverterController">
+   <children>
+      <Button fx:id="convertButton" layoutX="506.0" layoutY="174.0" mnemonicParsing="false" onAction="#onUpdateButton" text="Convert" />
+      <ComboBox fx:id="fromBox" layoutX="225.0" layoutY="100.0" prefWidth="150.0" />
+      <ComboBox fx:id="toBox" layoutX="412.0" layoutY="100.0" prefWidth="150.0" />
+      <TextField fx:id="amountField" layoutX="33.0" layoutY="100.0" />
+      <Label layoutX="33.0" layoutY="70.0" text="Amount" />
+      <Label layoutX="225.0" layoutY="70.0" text="From" />
+      <Label layoutX="412.0" layoutY="70.0" text="To" />
+      <Label fx:id="resultLabel" layoutX="123.0" layoutY="257.0" prefHeight="51.0" prefWidth="382.0" text="ResultNumber">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="33.0" layoutY="267.0" text="RESULT:">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
