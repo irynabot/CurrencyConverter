@@ -2,7 +2,7 @@ package com.main.view.converter;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import com.main.viewmodel.converter.View1VM;
+import com.main.viewmodel.converter.ConverterVM;
 
 import javafx.event.ActionEvent;
 
@@ -25,9 +25,9 @@ public class ConverterController {
 
 
 
-    private View1VM viewModel;
+    private ConverterVM viewModel;
 
-    public void init(View1VM pieViewModel) {
+    public void init(ConverterVM pieViewModel) {
         this.viewModel = pieViewModel;
         fromBox.valueProperty().bindBidirectional(viewModel.getSourceCurrency());
         toBox.valueProperty().bindBidirectional(viewModel.getFinalCurrency());

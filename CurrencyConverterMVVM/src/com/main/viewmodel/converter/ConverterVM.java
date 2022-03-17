@@ -5,14 +5,14 @@ import javafx.beans.property.StringProperty;
 import com.main.model.DataModel;
 import javafx.collections.ObservableList;
 
-public class View1VM {
+public class ConverterVM {
     private StringProperty sourceNumber;
     private StringProperty sourceCurrency;
     private StringProperty finalCurrency;
     private StringProperty result;
     private DataModel model;
 
-    public View1VM(DataModel dataModel)
+    public ConverterVM(DataModel dataModel)
     {
         model = dataModel;
         sourceNumber = new SimpleStringProperty();

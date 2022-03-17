@@ -6,7 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import com.main.view.converter.ConverterController;
-import com.main.viewmodel.converter.ViewModelFactory;
+import com.main.viewmodel.ViewModelFactory;
 
 import java.io.IOException;
 
@@ -18,7 +18,6 @@ public class ViewFactory {
     {
         stage = st;
         viewModelFactory = vmFactory;
-
     }
     public void start() throws IOException {
         openView("Converter");

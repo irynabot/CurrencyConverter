@@ -5,7 +5,7 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import com.main.model.DataModelFactory;
 import com.main.view.ViewFactory;
-import com.main.viewmodel.converter.ViewModelFactory;
+import com.main.viewmodel.ViewModelFactory;
 
 
 public class CurrencyConverterApp extends Application {

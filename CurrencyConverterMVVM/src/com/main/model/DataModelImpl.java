@@ -57,6 +57,13 @@ public class DataModelImpl implements DataModel {
         FXCollections.sort(list);
         return list;
     }
+
+    @Override
+    public Currency getCurrencyByName(String name) {
+        Double rate = currencyRates.getJSONObject("rates").getDouble(name);
+        return (new Currency(name,rate));
+    }
+
     public void updateData() {
         String output = getURLContent("https://openexchangerates.org/api/latest.json?app_id=014ca641c5e049a4bdbdc03b63f4c5c4");
         currencyRates = new JSONObject(output);

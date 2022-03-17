@@ -1,30 +1,21 @@
 package com.main.model;
 
 public class Currency {
-    String fullname;
-    String shortname;
+    String name;
     Double rate;
 
-    public Currency(String fullname,String shortname, Double rate)
+    public Currency(String shortname, Double rate)
     {
-        this.fullname = fullname;
-        this.shortname = shortname;
+        this.name = shortname;
         this.rate = rate;
     }
-    public String getFullname() {
-        return fullname;
+
+    public String getname() {
+        return name;
     }
 
-    public void setFullname(String fullname) {
-        this.fullname = fullname;
-    }
-
-    public String getShortname() {
-        return shortname;
-    }
-
-    public void setShortname(String shortname) {
-        this.shortname = shortname;
+    public void setname(String shortname) {
+        this.name = shortname;
     }
 
     public Double getRate() {
