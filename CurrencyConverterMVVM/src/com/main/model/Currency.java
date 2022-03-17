@@ -5,7 +5,12 @@ public class Currency {
     String shortname;
     Double rate;
 
-
+    public Currency(String fullname,String shortname, Double rate)
+    {
+        this.fullname = fullname;
+        this.shortname = shortname;
+        this.rate = rate;
+    }
     public String getFullname() {
         return fullname;
     }

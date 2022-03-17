@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.main.view.rates.RatesController">
    <children>
       <TableView fx:id="table" layoutX="175.0" layoutY="80.0" prefHeight="187.0" prefWidth="249.0">
@@ -16,6 +15,9 @@
           <TableColumn fx:id="nameColumn" prefWidth="87.33331298828125" text="Name" />
           <TableColumn fx:id="amountColumn" prefWidth="144.66665649414062" text="Amount" />
         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
       </TableView>
       <Button fx:id="addButton" layoutX="372.0" layoutY="308.0" mnemonicParsing="false" text="Add" />
       <TextField fx:id="addTextField" layoutX="188.0" layoutY="308.0" promptText="Currency Name" />
