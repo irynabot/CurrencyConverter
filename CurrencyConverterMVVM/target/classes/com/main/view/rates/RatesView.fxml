@@ -10,7 +10,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.main.view.rates.RatesController">
    <children>
-      <TableView fx:id="table" layoutX="175.0" layoutY="80.0" prefHeight="187.0" prefWidth="249.0">
+      <TableView fx:id="table" layoutX="181.0" layoutY="81.0" prefHeight="205.0" prefWidth="287.0">
         <columns>
           <TableColumn fx:id="nameColumn" prefWidth="87.33331298828125" text="Name" />
           <TableColumn fx:id="amountColumn" prefWidth="144.66665649414062" text="Amount" />
@@ -19,12 +19,12 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Button fx:id="addButton" layoutX="372.0" layoutY="308.0" mnemonicParsing="false" onAction="#onAddButton" text="Add" />
-      <Label layoutX="274.0" layoutY="28.0" text="Rates">
+      <Button fx:id="addButton" layoutX="396.0" layoutY="308.0" mnemonicParsing="false" onAction="#onAddButton" text="Add" />
+      <Label layoutX="242.0" layoutY="29.0" text="Rates (USD based)">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <ComboBox fx:id="addComboBox" layoutX="175.0" layoutY="308.0" prefWidth="150.0" />
+      <ComboBox fx:id="addComboBox" layoutX="181.0" layoutY="308.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

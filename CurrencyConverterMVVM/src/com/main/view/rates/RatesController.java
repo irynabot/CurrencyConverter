@@ -1,4 +1,5 @@
 package com.main.view.rates;
+import com.main.model.DataModel;
 import com.main.viewmodel.rates.RatesVM;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -33,11 +34,31 @@ public class RatesController {
         table.setItems(list);
         addComboBox.setItems(ratesVM.getCurrNames());
         addComboBox.valueProperty().bindBidirectional(ratesVM.getAddedCurrency());
+        runAutoUpdate();
     }
 
     public void onAddButton(ActionEvent actionEvent)
     {
         list.add(ratesVM.getCurrencyByName());
         addComboBox.getItems().remove(addComboBox.getValue());
+    }
+    public void updateTable(ObservableList<Currency> newList)
+    {
+        list = newList;
+    }
+    private void runAutoUpdate() {
+        Thread thread = new Thread(() ->{
+
+            while (true){
+                list = ratesVM.updateData(list);
+                try {
+                    Thread.sleep(60000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        thread.setDaemon(true);
+        thread.start();
     }
 }

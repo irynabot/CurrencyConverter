@@ -69,4 +69,12 @@ public class DataModelImpl implements DataModel {
         currencyRates = new JSONObject(output);
     }
 
+    @Override
+    public ObservableList<Currency> getCurrencyUpdates(ObservableList<Currency> list) {
+        for (Currency currency : list)
+        {
+            currency.setRate(currencyRates.getJSONObject("rates").getDouble(currency.getName()));
+        }
+        return list;
+    }
 }
