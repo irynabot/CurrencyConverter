@@ -1,6 +1,8 @@
 package com.main.view.rates;
+import com.main.viewmodel.rates.RatesVM;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import com.main.model.Currency;
@@ -8,7 +10,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 public class RatesController {
     @FXML
-    TextField addTextField;
+    ComboBox<String> addComboBox;
 
     @FXML
     Button addButton;
@@ -21,16 +23,21 @@ public class RatesController {
     @FXML
     TableView<Currency> table;
 
-    public void init()
+    private RatesVM ratesVM;
+    private ObservableList<Currency> list = FXCollections.observableArrayList();
+    public void init(RatesVM ratesViewModel)
     {
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("shortname"));
+        ratesVM = ratesViewModel;
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         amountColumn.setCellValueFactory(new PropertyValueFactory<>("rate"));
-        table.setItems(getCurrencies());
+        table.setItems(list);
+        addComboBox.setItems(ratesVM.getCurrNames());
+        addComboBox.valueProperty().bindBidirectional(ratesVM.getAddedCurrency());
     }
-    ObservableList<Currency> getCurrencies()
+
+    public void onAddButton(ActionEvent actionEvent)
     {
-        ObservableList<Currency> list = FXCollections.observableArrayList();
-        list.add(new Currency("Ukrainian Hrivna","UAH",27d));
-        return list;
+        list.add(ratesVM.getCurrencyByName());
+        addComboBox.getItems().remove(addComboBox.getValue());
     }
 }

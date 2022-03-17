@@ -37,7 +37,7 @@ public class ViewFactory {
         }
         if ("Rates".equals(name)){
             RatesController ratesController = loader.getController();
-            ratesController.init();
+            ratesController.init(viewModelFactory.getRatesVM());
             localstage.setTitle("Rates");
         }
 

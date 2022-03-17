@@ -1,21 +1,28 @@
 package com.main.model;
 
-public class Currency {
-    String name;
-    Double rate;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
-    public Currency(String shortname, Double rate)
+public class Currency {
+    private StringProperty name;
+    private Double rate;
+
+    public Currency(String name, Double rate)
     {
-        this.name = shortname;
+        this.name = new SimpleStringProperty(name);
         this.rate = rate;
     }
 
-    public String getname() {
+    public final StringProperty nameProperty() {
         return name;
     }
 
-    public void setname(String shortname) {
-        this.name = shortname;
+    public final String getName() {
+        return name.get();
+    }
+
+    public final void setName(String value) {
+        name.set(value);
     }
 
     public Double getRate() {
