@@ -26,5 +26,6 @@
          </font>
       </Label>
       <ComboBox fx:id="addComboBox" layoutX="181.0" layoutY="308.0" prefWidth="150.0" />
+      <Button fx:id="deleteButton" layoutX="390.0" layoutY="346.0" mnemonicParsing="false" onAction="#onDeleteButton" text="Delete" />
    </children>
 </AnchorPane>

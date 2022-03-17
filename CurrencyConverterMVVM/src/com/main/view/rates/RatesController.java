@@ -24,6 +24,10 @@ public class RatesController {
     @FXML
     TableView<Currency> table;
 
+    @FXML
+    private Button deleteButton;
+
+
     private RatesVM ratesVM;
     private ObservableList<Currency> list = FXCollections.observableArrayList();
     public void init(RatesVM ratesViewModel)
@@ -34,6 +38,7 @@ public class RatesController {
         table.setItems(list);
         addComboBox.setItems(ratesVM.getCurrNames());
         addComboBox.valueProperty().bindBidirectional(ratesVM.getAddedCurrency());
+        
         runAutoUpdate();
     }
 
@@ -41,6 +46,18 @@ public class RatesController {
     {
         list.add(ratesVM.getCurrencyByName());
         addComboBox.getItems().remove(addComboBox.getValue());
+    }
+
+    public void onDeleteButton(ActionEvent actionEvent)
+    {
+        if (!list.isEmpty()) {
+            Currency currency = table.getSelectionModel().getSelectedItem();
+            list.remove(currency);
+            addComboBox.getItems().add(currency.getName());
+            ObservableList<String> currencyNamesList = addComboBox.getItems();
+            FXCollections.sort(currencyNamesList);
+            addComboBox.setItems(currencyNamesList);
+        }
     }
     public void updateTable(ObservableList<Currency> newList)
     {
