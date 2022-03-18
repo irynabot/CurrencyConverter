@@ -38,7 +38,7 @@ public class RatesController {
         table.setItems(list);
         addComboBox.setItems(ratesVM.getCurrNames());
         addComboBox.valueProperty().bindBidirectional(ratesVM.getAddedCurrency());
-        
+
         runAutoUpdate();
     }
 
@@ -67,9 +67,11 @@ public class RatesController {
         Thread thread = new Thread(() ->{
 
             while (true){
-                list = ratesVM.updateData(list);
+                if (!list.isEmpty())
+                    ratesVM.updateData(list);
+                table.refresh();
                 try {
-                    Thread.sleep(60000);
+                    Thread.sleep(5000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

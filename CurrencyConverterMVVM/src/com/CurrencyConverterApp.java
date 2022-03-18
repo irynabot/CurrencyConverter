@@ -25,7 +25,7 @@ public class CurrencyConverterApp extends Application {
             while (true){
                 dataModel.updateData();
                 try {
-                    Thread.sleep(60000);
+                    Thread.sleep(5000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

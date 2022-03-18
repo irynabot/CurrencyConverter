@@ -68,13 +68,11 @@ public class DataModelImpl implements DataModel {
         String output = getURLContent("https://openexchangerates.org/api/latest.json?app_id=014ca641c5e049a4bdbdc03b63f4c5c4");
         currencyRates = new JSONObject(output);
     }
-
     @Override
-    public ObservableList<Currency> getCurrencyUpdates(ObservableList<Currency> list) {
+    public void getCurrencyUpdates(ObservableList<Currency> list) {
         for (Currency currency : list)
         {
             currency.setRate(currencyRates.getJSONObject("rates").getDouble(currency.getName()));
         }
-        return list;
     }
 }

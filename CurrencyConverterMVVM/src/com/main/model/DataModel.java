@@ -7,5 +7,5 @@ public interface DataModel {
     void updateData();
     public ObservableList<String> getRatesNames();
     public Currency getCurrencyByName(String currName);
-    public ObservableList<Currency> getCurrencyUpdates(ObservableList<Currency> list);
+    public void getCurrencyUpdates(ObservableList<Currency> list);
 }

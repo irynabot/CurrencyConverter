@@ -19,9 +19,9 @@ public class RatesVM {
     {
         return model.getCurrencyByName(addedCurrency.getValue());
     }
-    public ObservableList<Currency> updateData(ObservableList<Currency> list)
+    public void updateData(ObservableList<Currency> list)
     {
-        return model.getCurrencyUpdates(list);
+        model.getCurrencyUpdates(list);
     }
     public StringProperty getAddedCurrency(){return addedCurrency;}
     public ObservableList<String> getCurrNames()
