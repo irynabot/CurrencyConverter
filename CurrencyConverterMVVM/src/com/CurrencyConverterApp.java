@@ -15,8 +15,8 @@ public class CurrencyConverterApp extends Application {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("appclicationContext.xml");
         ViewFactory viewFactory = context.getBean("viewFactory", ViewFactory.class);
         viewFactory.start();
+        runAutoUpdate(context.getBean("dataModelFactory",DataModelFactory.class).getDataModel());
         context.close();
-        runAutoUpdate(viewFactory.getViewModelFactory().getDataModelFactory().getDataModel());
     }
 
     private void runAutoUpdate(DataModel dataModel) {
