@@ -6,17 +6,17 @@ import javafx.stage.Stage;
 import com.main.model.DataModelFactory;
 import com.main.view.ViewFactory;
 import com.main.viewmodel.ViewModelFactory;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 
 public class CurrencyConverterApp extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        DataModelFactory dataModelFactory = new DataModelFactory();
-        ViewModelFactory viewModelFactory = new ViewModelFactory(dataModelFactory);
-        ViewFactory viewFactory = new ViewFactory(stage, viewModelFactory);
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("appclicationContext.xml");
+        ViewFactory viewFactory = context.getBean("viewFactory", ViewFactory.class);
         viewFactory.start();
-        
-        runAutoUpdate(dataModelFactory.getDataModel());
+        context.close();
+        runAutoUpdate(viewFactory.getViewModelFactory().getDataModelFactory().getDataModel());
     }
 
     private void runAutoUpdate(DataModel dataModel) {

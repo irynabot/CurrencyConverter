@@ -11,12 +11,14 @@ import com.main.viewmodel.ViewModelFactory;
 import java.io.IOException;
 
 public class ViewFactory {
-    private Stage stage;
     private ViewModelFactory viewModelFactory;
 
-    public ViewFactory(Stage st, ViewModelFactory vmFactory)
+    public ViewModelFactory getViewModelFactory() {
+        return viewModelFactory;
+    }
+
+    public ViewFactory(ViewModelFactory vmFactory)
     {
-        stage = st;
         viewModelFactory = vmFactory;
     }
     public void start() throws IOException {
